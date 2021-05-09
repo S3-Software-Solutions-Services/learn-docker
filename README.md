@@ -1,5 +1,5 @@
 # Learn Docker
-Aprenda o que é Docker e Docker Compose, e como utilizá-los.
+Aprenda o que é e como usar Docker e Docker Compose.
 
 ![Docker Logo](./assets/docker.png)
 
@@ -23,11 +23,11 @@ Aprenda o que é Docker e Docker Compose, e como utilizá-los.
 O Docker é uma plataforma de software que permite a criação, o teste e a implantação de aplicações rapidamente. O Docker cria pacotes de software em unidades padronizadas chamadas de contêineres que têm tudo o que o software precisa para ser executado, inclusive bibliotecas, ferramentas de sistema, código e runtime. Ao usar o Docker, é possível implantar e escalar rapidamente aplicações em qualquer ambiente e ter a certeza de que o seu código será executado.
 
 ## Como o Docker funciona
-O Docker permite executar o código de maneira padronizada. O Docker é um sistema operacional para contêineres. Da mesma maneira que uma máquina virtual virtualiza (desfaz a necessidade de gerenciar diretamente) o hardware do servidor, os contêineres virtualizam o sistema operacional de um servidor. O Docker é instalado em cada servidor e apresenta comandos simples que você pode usar para criar, iniciar ou interromper contêineres.  
-O contêiner sempre será criado à partir de uma imagem. Uma imagem pode ser baixada à partir do Docker Hub, ou pode ser criada à partir de um Dockerfile.
+O Docker permite executar o código de maneira padronizada. Da mesma maneira que uma máquina virtual virtualiza (desfaz a necessidade de gerenciar diretamente) o hardware do servidor, os contêineres virtualizam o sistema operacional de um servidor. O Docker é instalado em cada servidor e apresenta comandos simples que você pode usar para criar, iniciar ou interromper contêineres.  
+Um contêiner é criado à partir de uma imagem. Uma imagem pode ser baixada à partir do Docker Hub ou pode ser criada à partir de um Dockerfile.
 
 ## Por que usar o Docker
-Ao usar o Docker, é possível enviar o código com mais rapidez, padronizar as operações de aplicativo, mover o código com facilidade e economizar, melhorando a utilização de recursos. Com o Docker, você tem um único objeto que pode ser executado com segurança em qualquer lugar. A sintaxe simples e direta do Docker possibilita o controle total. A ampla adoção significa que o Docker disponibiliza um ecossistema reforçado de ferramentas e aplicações prontas para uso. Docker resolve o famoso problema (na minha máquina funciona).
+Ao usar o Docker, é possível enviar o código com mais rapidez, padronizar as operações de aplicativo, mover o código com facilidade e economizar, melhorando a utilização de recursos. Com o Docker, você tem um único objeto que pode ser executado com segurança em qualquer lugar. A sintaxe simples e direta do Docker possibilita o controle total. A ampla adoção significa que o Docker disponibiliza um ecossistema reforçado de ferramentas e aplicações prontas para uso. O Docker resolve o famoso problema (na minha máquina funciona), possibilitando interoperar sua aplicação em máquinas diferentes e sistemas operacionais diferentes. Outro benefício é não precisar gastar tempo configurando serviços de um servidor.
 
 ## Instalando o Docker
 Para instalar o Docker no Windows:
@@ -42,7 +42,7 @@ sudo apt install -y docker-ce && \
 sudo systemctl start docker && sudo systemctl enable docker
 ```
 
-Verificando se o docker foi instalado, execute o seguinte comando no terminal:
+Verifique se o docker foi instalado, execute o seguinte comando no terminal:
 ```bash
 docker --version
 ```
@@ -63,18 +63,17 @@ docker stop <container_id> # Encerra a execução de um container pelo ID
 
 ## O que é Docker Compose
 O Docker Compose é um orquestrador de contêineres Docker. Ou seja, ele rege como os contêineres específicados no arquivo de configuração do Docker Compose devem se comportar.  
-O Docker Compose é composto por serviços (contêineres), e o uso dele tem o propósito de utilizar vários contêineres em uma mesma network, permitindo a comunicação entre os contêineres.
 
 ## Como o Docker Compose funciona
-À partir de um arquivo yml seguindo a sintáxe de configuração do Docker Compose é possível orquestrar seus contêires através de um único comando. Resumindo, ao invés de subir um contêiner por vez, você pode subir 4 de umas vez resolve toda sua infraestrutura de desenvolvimento sempre perder tempo.  
-O contêiner sempre será criado à partir de uma imagem. Uma imagem pode ser baixada à partir do Docker Hub, ou pode ser criada à partir de um Dockerfile.
+A configuração deve ser feita à partir de um arquivo yml. Seguindo a sintáxe do Docker Compose é possível orquestrar seus contêineres através de um único comando. Resumindo, ao invés de subir um contêiner por vez, você irá subir vários contêineres de uma só vez, automatizando a infraestrutura da sua aplicação e a disponibilizando facilmente.O Docker Compose também cria por padrão uma network para o contêineres que serão executaddos, facilianto a comunição entre eles.
 
 ## Por que usar o Docker Compose
-Ao usar o Docker Compose você ganha tempo, é muito mais produtivo. É excelente por criar uma comunicação entre os contêineres por default, tem uma ampla possibilidade de configuração automizando ainda mais seu ambiente de desenvolvimento e além disso, da mesma maneira que você sobe vários contêineres de uma vez, vocẽ também os para.
+Usar o  Docker Compose gera economia de tempo e produtividade. Facilita a comunicação entre os contêineres por padrão. Tem uma vasta possibilidade de configurações para automatizar seu ambiente de desenvolvimento.  
+E da mesma maneira que você sobe vários contêineres com um comando, vocẽ também os para.
 
 ## Instalando Docker Compose
-Geralmente o Docker Compose é instalado em conjunto com o Docker, não precisa se preocupar.  
-Verificando se o docker-compose foi instalado, execute o seguinte comando no terminal:
+Geralmente o Docker Compose é instalado em conjunto com o Docker, então não precisa se preocupar.  
+Verifique se o docker-compose está instalado, execute o seguinte comando no terminal:
 ```bash
 docker-compose --version
 ```
@@ -89,14 +88,16 @@ docker-compose stop nome-do-servico # Para a execução do contêiner que possui
 docker-compose rm # Remove todos os contêineres explicítados no arquivo
 ```
 
+## Hands On
+
 ## Docker na prática
 Nesse hands on, criaremos uma imagem Docker à partir do nosso [Dockerfile](./Dockerfile) (presente neste repositório), e criaremos um contêiner a partir da nossa nova imagem, expondo nossa página html na porta 8080.  
 
 *Atenção: Antes de tudo, garanta que você clonou este repositório em sua máquina, e está com o terminal posicionado nele.*
 
-Em uma terminal de sua preferência, se posicione na raiz do diretório docker-class e execute:
+Em um terminal de sua preferência, se posicione na raiz do repositório learn-docker e execute:
 ```bash
-# Esse comando indica que queremos criar uma imagem à partir do arquivo Dockerfile com a tag nginx-html, indicando o contexto atual através do (.)
+# O comando abaixo diz que queremos criar uma imagem à partir do arquivo Dockerfile com a tag nginx-html, indicando o contexto atual através do (.)
 docker build -f Dockerfile -t nginx-html .
 ```
 
@@ -107,36 +108,36 @@ docker images # Deve aparecer entre as imagens listadas o nome nginx-html
 
 Agora vamos criar e executar um contêiner à partir da imagem que acabamos de criar:
 ```bash
-# Esse comando indica que queremos criar e executar em background um contêiner com o nome docker-class à partir da imagem que criamos à pouco
-docker run -d --name docker-class -p 8080:80 nginx-html
+# O comando abaixo indica que queremos criar e executar em background um contêiner com o nome `learn-docker` à partir da imagem que criamos à pouco, expondo na porta 8080
+docker run -d --name learn-docker -p 8080:80 nginx-html
 ```
 
-Para saber o contêiner está em execução, execute o seguinte comando:
+Para verificar se o contêiner está em execução, execute o seguinte comando:
 ```bash
 docker ps # Você verá algo parecido com o log abaixo
 # CONTAINER ID   IMAGE        COMMAND                  CREATED         STATUS         PORTS                                   NAMES
 # c2a8068d1bbf   nginx-html   "/docker-entrypoint.…"   5 seconds ago   Up 2 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp   docker-class
 ```
 
-Acesse a seguinte URL e deverá ver `Hello Docker` na sua tela:
+Acessando a seguinte URL você deverá ver `Hello Docker` escrito em seu navegador:
 > http://localhost:8080/
 
 Para encerrar a execução, no terminal execute `docker stop <container_id>`
 
 ## Docker Compose na prática
-Nesse hands on, criaremos dois contêineres à partir do nosso [docker-compose.yml](./docker-compose.yml) (presente neste repositório), o `nginx-from-local` será criado à partir do nosso [Dockerfile](./Dockerfile), expondo nossa página html na porta 8080, e o `nginx-from-docker-hub` será criado à partir da imagem do nginx no DockerHub, e através do volumes, copiaremos a pasta compose para dentro do contêiner, expondo nossa página html na porta 8081, ou seja, o html será diferente e a porta também.  
+Nesse hands on, criaremos dois contêineres à partir do nosso [docker-compose.yml](./docker-compose.yml) (presente neste repositório). O `nginx-from-local` será criado à partir do nosso [Dockerfile](./Dockerfile) expondo nossa página html na porta 8080, e o `nginx-from-docker-hub` será criado à partir da imagem do nginx no DockerHub. E através do `volumes` provisionaremos a nossa pasta compose (que contém outra página html) para dentro do contêiner expondo nossa página na porta 8081, ou seja, a página html e a porta de cada serviço será diferente.  
 
 *Atenção: Antes de tudo, garanta que você clonou este repositório em sua máquina, e está com o terminal posicionado nele.*
 
-Em uma terminal de sua preferência, se posicione na raiz do diretório docker-class e execute:
+Em um terminal de sua preferência, se posicione na raiz do diretório learn-docker e execute:
 ```bash
-# Esse comando irá subir todos os contêires listados dentro de services no arquivo docker-compose.yml
+# O comando abaixo irá subir todos os contêires declarados dentro do objeto `services` no arquivo docker-compose
 docker-compose up
 ```
 
-Agora verifique se a nova imagem foi criada a partir do docker-compose, abra um novo terminal e execute:
+Verifique se a nova imagem foi criada a partir do docker-compose, abra um novo terminal e execute:
 ```bash
-docker images # Deve aparecer entre as imagens listadas o nome docker-class_nginx-from-local
+docker images # Deverá aparecer entre as imagens listadas o nome learn-docker_nginx-from-local
 ```
 
 Verifique também se os contêineres estão em execução, execute o seguinte comando:
