@@ -91,6 +91,8 @@ docker-compose rm # Remove todos os contêineres explicítados no arquivo
 ## Docker na prática
 Nesse hands on, criaremos uma imagem Docker à partir do nosso [Dockerfile](./Dockerfile) (presente neste repositório), e criaremos um contêiner a partir da nossa nova imagem, expondo nossa página html na porta 8080.  
 
+*Atenção: Antes de tudo, garanta que você clonou este repositório em sua máquina, e está com o terminal posicionado nele.*
+
 Em uma terminal de sua preferência, se posicione na raiz do diretório docker-class e execute:
 ```bash
 # Esse comando indica que queremos criar uma imagem à partir do arquivo Dockerfile com a tag nginx-html, indicando o contexto atual através do (.)
@@ -122,6 +124,8 @@ Para encerrar a execução, no terminal execute `docker stop <container_id>`
 
 ## Docker Compose na prática
 Nesse hands on, criaremos dois contêineres à partir do nosso [docker-compose.yml](./docker-compose.yml) (presente neste repositório), o `nginx-from-local` será criado à partir do nosso [Dockerfile](./Dockerfile), expondo nossa página html na porta 8080, e o `nginx-from-docker-hub` será criado à partir da imagem do nginx no DockerHub, e através do volumes, copiaremos a pasta compose para dentro do contêiner, expondo nossa página html na porta 8081, ou seja, o html será diferente e a porta também.  
+
+*Atenção: Antes de tudo, garanta que você clonou este repositório em sua máquina, e está com o terminal posicionado nele.*
 
 Em uma terminal de sua preferência, se posicione na raiz do diretório docker-class e execute:
 ```bash
