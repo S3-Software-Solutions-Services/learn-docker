@@ -1,4 +1,4 @@
-# Docker Class
+# Learn Docker
 Aprenda o que é Docker e Docker Compose, e como utilizá-los.
 
 ![Docker Logo](./assets/docker.png)
@@ -49,6 +49,7 @@ docker --version
 
 ## Comandos mais usados no Docker
 ```bash
+docker help # Lista todos os comandos possíveis do docker
 docker ps # Lista apenas os containers que estão em execução
 docker ps -a # Lista todos os containers
 docker images # Lista todas as imagens
