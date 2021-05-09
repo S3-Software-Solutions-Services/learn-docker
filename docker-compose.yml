@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  nginx-from-local:
+    container_name: nginx-from-local
+    build: .
+    ports:
+      - '8080:80'
+
+  nginx-from-docker-hub:
+    container_name: nginx-from-docker-hub
+    image: nginx:alpine
+    ports:
+      - '8081:80'
+    volumes:
+      - ./compose:/usr/share/nginx/html
