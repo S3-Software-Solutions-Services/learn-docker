@@ -78,7 +78,7 @@ Verifique se o docker-compose está instalado, execute o seguinte comando no ter
 docker-compose --version
 ```
 
-## Comandos mais usados
+## Comandos mais usados no Docker Compose
 ```bash
 docker-compose up # Executa todos os contêineres disponíveis na configuração do arquivo
 docker-compose up -d # Executa todos os contêineres disponíveis na configuração do arquivo, porém, executa em background, não lockando o terminal
