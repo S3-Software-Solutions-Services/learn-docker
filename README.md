@@ -3,17 +3,21 @@ Aprenda o que é Docker e Docker Compose, e como utilizá-los.
 
 ![Docker Logo](./assets/docker.png)
 
-## Sumário
+## Sumário Docker
 * [O que é Docker](#o-que-é-docker)
 * [Como o Docker funciona](#como-o-docker-funciona)
 * [Por que usar o Docker](#por-que-usar-o-docker)
 * [Instalando o Docker](#instalando-o-docker)
 * [Comandos mais usados no Docker](#comandos-mais-usados-no-docker)
+* [Docker na prática](#docker-na-prática)
+
+## Sumário Docker Compose
 * [O que é Docker Compose](#o-que-é-docker-compose)
 * [Como o Docker Compose funciona](#como-o-docker-compose-funciona)
 * [Por que usar o Docker Compose](#por-que-usar-o-docker-compose)
 * [Instalando o Docker Compose](#instalando-o-docker-compose)
 * [Comandos mais usados no Docker Compose](#comandos-mais-usados-no-docker-compose)
+* [Docker Compose na prática](#docker-compose-na-prática)
 
 ## O que é Docker
 O Docker é uma plataforma de software que permite a criação, o teste e a implantação de aplicações rapidamente. O Docker cria pacotes de software em unidades padronizadas chamadas de contêineres que têm tudo o que o software precisa para ser executado, inclusive bibliotecas, ferramentas de sistema, código e runtime. Ao usar o Docker, é possível implantar e escalar rapidamente aplicações em qualquer ambiente e ter a certeza de que o seu código será executado.
