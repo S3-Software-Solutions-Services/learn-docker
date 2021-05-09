@@ -118,6 +118,8 @@ docker ps # Você verá algo parecido com o log abaixo
 Acesse a seguinte URL e deverá ver `Hello Docker` na sua tela:
 > http://localhost:8080/
 
+Para encerrar a execução, no terminal execute `docker stop <container_id>`
+
 ## Docker Compose na prática
 Nesse hands on, criaremos dois contêineres à partir do nosso [docker-compose.yml](./docker-compose.yml) (presente neste repositório), o `nginx-from-local` será criado à partir do nosso [Dockerfile](./Dockerfile), expondo nossa página html na porta 8080, e o `nginx-from-docker-hub` será criado à partir da imagem do nginx no DockerHub, e através do volumes, copiaremos a pasta compose para dentro do contêiner, expondo nossa página html na porta 8081, ou seja, o html será diferente e a porta também.  
 
@@ -145,4 +147,4 @@ Acesse as seguinte URLs e deverá ver `Hello Docker` na porta 8080 e `Hello Dock
 > http://localhost:8080/  
 > http://localhost:8081/
 
-Para encerrar a execução, no termina em que executou `docker-compose up`, pressione `CTRL+C`
+Para encerrar a execução, no terminal em que executou `docker-compose up`, pressione `CTRL+C`
